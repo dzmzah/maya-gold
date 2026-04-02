@@ -7,7 +7,7 @@
   <meta name="description" content="MAYA GOLD — wyjątkowa biżuteria tworzona na najpiękniejsze chwile. Pierścionki, kolczyki, zawieszki i łańcuszki premium." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
   <style>
     /* ── ТЕМA: LIGHT ── */
@@ -38,7 +38,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -80,15 +80,16 @@
       display: flex;
       align-items: center;
       flex-shrink: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      letter-spacing: 6px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      transition: opacity 0.2s;
     }
-    .logo img {
-      height: 52px;
-      width: 52px;
-      object-fit: contain;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-    .logo img:hover { transform: scale(1.06); }
+    .logo:hover { opacity: 0.8; }
+    .logo span { color: var(--text); font-weight: 300; }
 
     .menu {
       display: flex;
@@ -181,7 +182,7 @@
       justify-content: center;
       padding: 13px 24px;
       border-radius: 999px;
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.5px;
@@ -249,7 +250,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       font-size: 11px;
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       margin-bottom: 18px;
       border: 1px solid var(--line);
       padding: 7px 14px;
@@ -365,7 +366,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       font-size: 11px;
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       display: inline-block;
       margin-bottom: 16px;
     }
@@ -417,7 +418,7 @@
       font-size: 12px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
@@ -532,7 +533,7 @@
       color: var(--gold-light);
       margin-bottom: 3px;
       font-size: 13px;
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
@@ -576,7 +577,7 @@
       border-radius: 14px;
       color: var(--text);
       font-size: 14px;
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
       outline: none;
       transition: 0.25s ease;
     }
@@ -601,13 +602,15 @@
       margin-bottom: 24px;
       border-bottom: 1px solid var(--line-soft);
     }
-    .footer-logo img {
-      height: 44px;
-      width: 44px;
-      object-fit: contain;
-      border-radius: 8px;
-      opacity: 0.9;
+    .footer-logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 20px;
+      letter-spacing: 6px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
     }
+    .footer-logo span { color: var(--text); font-weight: 300; }
     .footer-nav {
       display: flex;
       gap: 22px;
@@ -643,7 +646,7 @@
       color: var(--muted);
       font-size: 13px;
     }
-    .footer-tagline { color: var(--gold-light); letter-spacing: 2px; font-size: 12px; text-transform: uppercase; font-family: "Inter", sans-serif; }
+    .footer-tagline { color: var(--gold-light); letter-spacing: 2px; font-size: 12px; text-transform: uppercase; font-family: "Raleway", sans-serif; }
 
     /* ── WHATSAPP FLOAT ── */
     .whatsapp-float {
@@ -698,7 +701,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       white-space: nowrap;
-      font-family: "Inter", sans-serif;
+      font-family: "Raleway", sans-serif;
     }
     .marquee-item span { color: var(--gold-light); font-size: 16px; }
 
@@ -861,9 +864,7 @@
   <!-- HEADER -->
   <header>
     <div class="container nav">
-      <a href="#home" class="logo">
-        <img src="images/logo.jpg" alt="MAYA GOLD" />
-      </a>
+      <a href="#home" class="logo">MAYA <span>GOLD</span></a>
 
       <ul class="menu">
         <li><a href="#collections">Kolekcje</a></li>
@@ -1224,9 +1225,7 @@
   <footer>
     <div class="container">
       <div class="footer-top">
-        <div class="footer-logo">
-          <img src="images/logo.jpg" alt="MAYA GOLD" />
-        </div>
+        <div class="footer-logo">MAYA <span>GOLD</span></div>
         <nav>
           <ul class="footer-nav">
             <li><a href="#collections">Kolekcje</a></li>
