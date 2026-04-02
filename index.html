@@ -119,10 +119,20 @@
       gap: 12px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.22s ease, transform 0.22s ease;
+      /* задержка 0.35s при скрытии — курсор успевает доехать */
+      transition: opacity 0.2s ease 0.35s, transform 0.2s ease 0.35s;
       z-index: 2000;
       box-shadow: 0 24px 60px rgba(0,0,0,0.12);
       white-space: normal;
+    }
+    /* невидимый мост между пунктом меню и дропдауном */
+    .menu li::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 18px;
     }
     .dropdown::before {
       content: '';
@@ -141,6 +151,8 @@
       opacity: 1;
       pointer-events: all;
       transform: translateX(-50%) translateY(0);
+      /* мгновенное появление */
+      transition: opacity 0.18s ease 0s, transform 0.18s ease 0s;
     }
     .drop-item {
       display: flex;
@@ -370,11 +382,13 @@
     }
     .stat strong {
       display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 30px;
-      color: var(--gold-light);
+      font-family: "Raleway", sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--gold);
       margin-bottom: 4px;
       line-height: 1;
+      letter-spacing: 1px;
     }
     .stat span { color: var(--muted); font-size: 13px; }
 
@@ -852,7 +866,6 @@
       animation: marquee 28s linear infinite;
       width: max-content;
     }
-    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
     @keyframes marquee {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
@@ -1600,7 +1613,8 @@
 
     // ── ACTIVE NAV LINK ──
     const sections = document.querySelectorAll('section[id]');
-    const menuLinks = document.querySelectorAll('.menu a');
+    // только прямые пункты меню БЕЗ дропдауна
+    const menuLinks = document.querySelectorAll('.menu > li:not(:has(.dropdown)) > a');
 
     window.addEventListener('scroll', () => {
       let current = '';
