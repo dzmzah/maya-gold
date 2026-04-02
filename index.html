@@ -889,7 +889,12 @@
       white-space: nowrap;
       font-family: "Raleway", sans-serif;
     }
-    .marquee-item span { color: var(--gold-light); font-size: 16px; }
+    .marquee-item + .marquee-item::before {
+      content: "·";
+      color: var(--gold-light);
+      margin-right: 32px;
+      font-size: 18px;
+    }
 
     /* ── GALLERY ── */
     .gallery-grid {
@@ -1096,20 +1101,20 @@
   <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span class="marquee-item"><span>—</span> Złoto próba 585</span>
-      <span class="marquee-item"><span>—</span> Złoto próba 750</span>
-      <span class="marquee-item"><span>—</span> Certyfikat jakości</span>
-      <span class="marquee-item"><span>—</span> Katowice, ul. Kościuszki 11</span>
-      <span class="marquee-item"><span>—</span> Bezpłatna konsultacja</span>
-      <span class="marquee-item"><span>—</span> Eleganckie pakowanie</span>
-      <span class="marquee-item"><span>—</span> Biżuteria na zamówienie</span>
-      <span class="marquee-item"><span>—</span> Złoto próba 585</span>
-      <span class="marquee-item"><span>—</span> Złoto próba 750</span>
-      <span class="marquee-item"><span>—</span> Certyfikat jakości</span>
-      <span class="marquee-item"><span>—</span> Katowice, ul. Kościuszki 11</span>
-      <span class="marquee-item"><span>—</span> Bezpłatna konsultacja</span>
-      <span class="marquee-item"><span>—</span> Eleganckie pakowanie</span>
-      <span class="marquee-item"><span>—</span> Biżuteria na zamówienie</span>
+      <span class="marquee-item">Złoto próba 585</span>
+      <span class="marquee-item">Złoto próba 750</span>
+      <span class="marquee-item">Certyfikat jakości</span>
+      <span class="marquee-item">Katowice, ul. Kościuszki 11</span>
+      <span class="marquee-item">Bezpłatna konsultacja</span>
+      <span class="marquee-item">Eleganckie pakowanie</span>
+      <span class="marquee-item">Biżuteria na zamówienie</span>
+      <span class="marquee-item">Złoto próba 585</span>
+      <span class="marquee-item">Złoto próba 750</span>
+      <span class="marquee-item">Certyfikat jakości</span>
+      <span class="marquee-item">Katowice, ul. Kościuszki 11</span>
+      <span class="marquee-item">Bezpłatna konsultacja</span>
+      <span class="marquee-item">Eleganckie pakowanie</span>
+      <span class="marquee-item">Biżuteria na zamówienie</span>
     </div>
   </div>
 
