@@ -947,6 +947,36 @@
       font-size: 18px;
     }
 
+    /* ── CATALOG ── */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover { transform: translateY(-6px); border-color: var(--line); box-shadow: 0 28px 70px rgba(0,0,0,0.13); }
+    .product-img-wrap { overflow: hidden; }
+    .product-img { width: 100%; height: 240px; object-fit: cover; transition: transform 0.5s ease; display: block; }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .product-info { padding: 18px; }
+    .product-cat { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; font-weight: 600; }
+    .product-name { font-family: "Cormorant Garamond", serif; font-size: 20px; margin-bottom: 6px; }
+    .product-desc { color: var(--muted); font-size: 13px; line-height: 1.5; margin-bottom: 12px; }
+    .product-cta { display: inline-flex; align-items: center; gap: 6px; color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+    .product-cta::after { content: "→"; transition: transform 0.2s; }
+    .product-card:hover .product-cta::after { transform: translateX(4px); }
+    .catalog-title { margin-bottom: 32px; }
+    .catalog-title h2 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 8px; }
+    .catalog-title p { color: var(--muted); font-size: 15px; }
+
     /* ── GALLERY ── */
     .gallery-grid {
       display: grid;
@@ -1109,9 +1139,9 @@
       <a href="#home" class="logo">MAYA <span>GOLD</span></a>
 
       <ul class="menu">
-        <li><a href="pierscionki.html">Pierścionki</a></li>
-        <li><a href="kolczyki.html">Kolczyki</a></li>
-        <li><a href="zawieszki.html">Zawieszki i łańcuszki</a></li>
+        <li><a href="#pierscionki">Pierścionki</a></li>
+        <li><a href="#kolczyki">Kolczyki</a></li>
+        <li><a href="#zawieszki">Zawieszki i łańcuszki</a></li>
         <li><a href="#galeria">Galeria</a></li>
         <li><a href="#about">O nas</a></li>
         <li><a href="#contacts">Kontakt</a></li>
@@ -1139,9 +1169,9 @@
 
     <!-- Mobile menu -->
     <nav class="mobile-menu" id="mobileMenu">
-      <a href="pierscionki.html" class="mobile-link">Pierścionki</a>
-      <a href="kolczyki.html" class="mobile-link">Kolczyki</a>
-      <a href="zawieszki.html" class="mobile-link">Zawieszki i łańcuszki</a>
+      <a href="#pierscionki" class="mobile-link">Pierścionki</a>
+      <a href="#kolczyki" class="mobile-link">Kolczyki</a>
+      <a href="#zawieszki" class="mobile-link">Zawieszki i łańcuszki</a>
       <a href="#galeria" class="mobile-link">Galeria</a>
       <a href="#opinie" class="mobile-link">Opinie</a>
       <a href="#about" class="mobile-link">O nas</a>
@@ -1239,7 +1269,7 @@
               <h3>Pierścionki</h3>
               <p>Wyraziste formy, delikatne proporcje i elegancki blask na wyjątkowe chwile.</p>
               <div class="card-footer">
-                <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+                <a href="#pierscionki" class="card-link">Dowiedz się więcej</a>
                 <a href="tel:+48601846000" class="card-call" onclick="event.stopPropagation()">
                   <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                   Zadzwoń
@@ -1254,7 +1284,7 @@
               <h3>Kolczyki</h3>
               <p>Minimalistyczne i wyraziste modele, które podkreślają rysy twarzy i charakter stylizacji.</p>
               <div class="card-footer">
-                <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+                <a href="#kolczyki" class="card-link">Dowiedz się więcej</a>
                 <a href="tel:+48601846000" class="card-call" onclick="event.stopPropagation()">
                   <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                   Zadzwoń
@@ -1269,7 +1299,7 @@
               <h3>Zawieszki i łańcuszki</h3>
               <p>Nowoczesna klasyka do warstwowych zestawień i stylowych akcentów.</p>
               <div class="card-footer">
-                <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+                <a href="#zawieszki" class="card-link">Dowiedz się więcej</a>
                 <a href="tel:+48601846000" class="card-call" onclick="event.stopPropagation()">
                   <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                   Zadzwoń
@@ -1277,6 +1307,89 @@
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIERSCIONKI -->
+    <section id="pierscionki" style="padding-top:60px;">
+      <div class="container">
+        <div class="catalog-title reveal">
+          <span class="eyebrow">Kolekcja</span>
+          <h2>Pierścionki</h2>
+          <p>Wyraziste formy, szlachetne kamienie i elegancki blask — pierścionki na każdą wyjątkową chwilę.</p>
+        </div>
+        <div class="catalog-grid">
+          <div class="product-card" data-img="images/19.jpg" data-title="Motyl z brylantami" data-desc="Wyjątkowy pierścionek w kształcie motyla, złoto białe z brylantami. Prawdziwe arcydzieło jubilerskie." data-tag="Pierścionki">
+            <div class="product-img-wrap"><img class="product-img" src="images/19.jpg" alt="Motyl z brylantami" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Pierścionki</div><h3 class="product-name">Motyl z brylantami</h3><p class="product-desc">Złoto białe, brylanty</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/12.jpg" data-title="Szafir i diamenty" data-desc="Elegancki pierścionek ze szafirem naturalnym i diamentami w złocie żółtym." data-tag="Pierścionki">
+            <div class="product-img-wrap"><img class="product-img" src="images/12.jpg" alt="Szafir i diamenty" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Pierścionki</div><h3 class="product-name">Szafir i diamenty</h3><p class="product-desc">Złoto żółte, szafir, diamenty</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/17.jpg" data-title="Perły i diamenty" data-desc="Klasyczny pierścionek z perłami naturalnymi i diamentami — ponadczasowa elegancja." data-tag="Pierścionki">
+            <div class="product-img-wrap"><img class="product-img" src="images/17.jpg" alt="Perły i diamenty" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Pierścionki</div><h3 class="product-name">Perły i diamenty</h3><p class="product-desc">Złoto, perły naturalne, diamenty</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/20.jpg" data-title="Motyl różowe złoto" data-desc="Pierścionek motyl z różowego złota z diamentami — nowoczesna klasyka." data-tag="Pierścionki">
+            <div class="product-img-wrap"><img class="product-img" src="images/20.jpg" alt="Motyl różowe złoto" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Pierścionki</div><h3 class="product-name">Motyl różowe złoto</h3><p class="product-desc">Różowe złoto, brylanty</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/5.jpg" data-title="Perła Tahiti" data-desc="Masywny pierścionek ze złota z perłą Tahiti — odważna elegancja." data-tag="Pierścionki">
+            <div class="product-img-wrap"><img class="product-img" src="images/5.jpg" alt="Perła Tahiti" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Pierścionki</div><h3 class="product-name">Perła Tahiti</h3><p class="product-desc">Złoto żółte, perła Tahiti</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/3.jpg" data-title="Wąż" data-desc="Charakterystyczny pierścionek w kształcie węża — złoto z czarną emalią i diamentami." data-tag="Pierścionki">
+            <div class="product-img-wrap"><img class="product-img" src="images/3.jpg" alt="Wąż" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Pierścionki</div><h3 class="product-name">Wąż</h3><p class="product-desc">Złoto białe, emalia, diamenty</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KOLCZYKI -->
+    <section id="kolczyki" style="padding-top:60px;">
+      <div class="container">
+        <div class="catalog-title reveal">
+          <span class="eyebrow">Kolekcja</span>
+          <h2>Kolczyki</h2>
+          <p>Minimalistyczne i wyraziste modele, które podkreślają rysy twarzy — od sztyftek po wiszące.</p>
+        </div>
+        <div class="catalog-grid">
+          <div class="product-card" data-img="images/1.jpg" data-title="Ametyst złoto" data-desc="Eleganckie kolczyki wiszące z ametystem w oprawie złota żółtego — delikatna kobiecość." data-tag="Kolczyki">
+            <div class="product-img-wrap"><img class="product-img" src="images/1.jpg" alt="Ametyst złoto" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Kolczyki</div><h3 class="product-name">Ametyst złoto</h3><p class="product-desc">Złoto żółte, ametyst</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/10.jpg" data-title="Opal i granaty" data-desc="Kolczyki sztyfty z opalem naturalnym i granatami — gra kolorów i wyjątkowy blask." data-tag="Kolczyki">
+            <div class="product-img-wrap"><img class="product-img" src="images/10.jpg" alt="Opal i granaty" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Kolczyki</div><h3 class="product-name">Opal i granaty</h3><p class="product-desc">Złoto, opal naturalny, granaty</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/15.jpg" data-title="Złote sztyfty" data-desc="Klasyczne złote kolczyki sztyfty — elegancja na każdą okazję." data-tag="Kolczyki">
+            <div class="product-img-wrap"><img class="product-img" src="images/15.jpg" alt="Złote sztyfty" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Kolczyki</div><h3 class="product-name">Złote sztyfty</h3><p class="product-desc">Złoto żółte 585</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZAWIESZKI -->
+    <section id="zawieszki" style="padding-top:60px;">
+      <div class="container">
+        <div class="catalog-title reveal">
+          <span class="eyebrow">Kolekcja</span>
+          <h2>Zawieszki i łańcuszki</h2>
+          <p>Nowoczesna klasyka — od delikatnych łańcuszków po efektowne zawieszki z perłami i szlachetnymi kamieniami.</p>
+        </div>
+        <div class="catalog-grid">
+          <div class="product-card" data-img="images/6.jpg" data-title="Perły Tahiti" data-desc="Naszyjnik z perłami Tahiti i złotą różą — luksus i elegancja w czystej postaci." data-tag="Zawieszki i łańcuszki">
+            <div class="product-img-wrap"><img class="product-img" src="images/6.jpg" alt="Perły Tahiti" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Zawieszki i łańcuszki</div><h3 class="product-name">Perły Tahiti</h3><p class="product-desc">Złoto żółte, perły Tahiti</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
+          <div class="product-card" data-img="images/7.jpg" data-title="Koral i złoto" data-desc="Delikatna zawieszka z koralem naturalnym w złotej oprawie — subtelna i wyjątkowa." data-tag="Zawieszki i łańcuszki">
+            <div class="product-img-wrap"><img class="product-img" src="images/7.jpg" alt="Koral i złoto" loading="lazy" /></div>
+            <div class="product-info"><div class="product-cat">Zawieszki i łańcuszki</div><h3 class="product-name">Koral i złoto</h3><p class="product-desc">Złoto, koral naturalny</p><span class="product-cta">Zapytaj o model</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1570,6 +1683,13 @@
         const title = card.querySelector('h3')?.textContent || '';
         const desc  = card.querySelector('p')?.textContent || '';
         openModal(src, title, desc, 'Kolekcja');
+      });
+    });
+
+    // Attach to product cards
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', () => {
+        openModal(card.dataset.img, card.dataset.title, card.dataset.desc, card.dataset.tag);
       });
     });
 
