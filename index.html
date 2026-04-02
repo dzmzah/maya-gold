@@ -8,8 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg?v=2" />
-  <link rel="shortcut icon" type="image/jpeg" href="images/logo.jpg?v=2" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23faf7f0'/><text x='50' y='54' font-size='62' font-family='Georgia,serif' fill='%23b8920a' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>M</text></svg>" />
   <style>
     /* ── ТЕМA: LIGHT ── */
     :root {
@@ -513,6 +512,15 @@
     }
     .card-link::after { content: "→"; transition: transform 0.2s; }
     .card:hover .card-link::after { transform: translateX(4px); }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .card-call {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text); font-size: 13px; font-weight: 500;
+      border: 1px solid var(--line-soft); border-radius: 999px;
+      padding: 7px 14px; transition: 0.2s ease;
+    }
+    .card-call svg { width: 13px; height: 13px; stroke: currentColor; fill: none; flex-shrink: 0; }
+    .card-call:hover { border-color: var(--line); color: var(--gold); background: rgba(180,140,20,0.06); }
 
     /* ── ABOUT ── */
     .about-grid {
@@ -1088,20 +1096,20 @@
   <!-- MARQUEE -->
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span class="marquee-item"><span>✦</span> Złoto próba 585</span>
-      <span class="marquee-item"><span>✦</span> Złoto próba 750</span>
-      <span class="marquee-item"><span>✦</span> Certyfikat jakości</span>
-      <span class="marquee-item"><span>✦</span> Katowice — ul. Kościuszki 11</span>
-      <span class="marquee-item"><span>✦</span> Bezpłatna konsultacja</span>
-      <span class="marquee-item"><span>✦</span> Eleganckie pakowanie</span>
-      <span class="marquee-item"><span>✦</span> Biżuteria na zamówienie</span>
-      <span class="marquee-item"><span>✦</span> Złoto próba 585</span>
-      <span class="marquee-item"><span>✦</span> Złoto próba 750</span>
-      <span class="marquee-item"><span>✦</span> Certyfikat jakości</span>
-      <span class="marquee-item"><span>✦</span> Katowice — ul. Kościuszki 11</span>
-      <span class="marquee-item"><span>✦</span> Bezpłatna konsultacja</span>
-      <span class="marquee-item"><span>✦</span> Eleganckie pakowanie</span>
-      <span class="marquee-item"><span>✦</span> Biżuteria na zamówienie</span>
+      <span class="marquee-item"><span>—</span> Złoto próba 585</span>
+      <span class="marquee-item"><span>—</span> Złoto próba 750</span>
+      <span class="marquee-item"><span>—</span> Certyfikat jakości</span>
+      <span class="marquee-item"><span>—</span> Katowice, ul. Kościuszki 11</span>
+      <span class="marquee-item"><span>—</span> Bezpłatna konsultacja</span>
+      <span class="marquee-item"><span>—</span> Eleganckie pakowanie</span>
+      <span class="marquee-item"><span>—</span> Biżuteria na zamówienie</span>
+      <span class="marquee-item"><span>—</span> Złoto próba 585</span>
+      <span class="marquee-item"><span>—</span> Złoto próba 750</span>
+      <span class="marquee-item"><span>—</span> Certyfikat jakości</span>
+      <span class="marquee-item"><span>—</span> Katowice, ul. Kościuszki 11</span>
+      <span class="marquee-item"><span>—</span> Bezpłatna konsultacja</span>
+      <span class="marquee-item"><span>—</span> Eleganckie pakowanie</span>
+      <span class="marquee-item"><span>—</span> Biżuteria na zamówienie</span>
     </div>
   </div>
 
@@ -1170,7 +1178,13 @@
             <div class="card-content">
               <h3>Pierścionki</h3>
               <p>Wyraziste formy, delikatne proporcje i elegancki blask na wyjątkowe chwile.</p>
-              <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+              <div class="card-footer">
+                <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+                <a href="tel:+48601846000" class="card-call" onclick="event.stopPropagation()">
+                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  Zadzwoń
+                </a>
+              </div>
             </div>
           </article>
 
@@ -1179,7 +1193,13 @@
             <div class="card-content">
               <h3>Kolczyki</h3>
               <p>Minimalistyczne i wyraziste modele, które podkreślają rysy twarzy i charakter stylizacji.</p>
-              <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+              <div class="card-footer">
+                <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+                <a href="tel:+48601846000" class="card-call" onclick="event.stopPropagation()">
+                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  Zadzwoń
+                </a>
+              </div>
             </div>
           </article>
 
@@ -1188,7 +1208,13 @@
             <div class="card-content">
               <h3>Zawieszki i łańcuszki</h3>
               <p>Nowoczesna klasyka do warstwowych zestawień i stylowych akcentów.</p>
-              <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+              <div class="card-footer">
+                <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+                <a href="tel:+48601846000" class="card-call" onclick="event.stopPropagation()">
+                  <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  Zadzwoń
+                </a>
+              </div>
             </div>
           </article>
         </div>
