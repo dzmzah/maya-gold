@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAYA GOLD — Firma Jubilerska</title>
+  <meta name="description" content="MAYA GOLD — wyjątkowa biżuteria tworzona na najpiękniejsze chwile. Pierścionki, kolczyki, zawieszki i łańcuszki premium." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="фото/logo.jpg" />
+  <style>
+    /* ── ТЕМA: DARK ── */
+    :root,
+    [data-theme="dark"] {
+      --bg:          #0f0f10;
+      --bg-soft:     #18181a;
+      --bg-section:  rgba(255,255,255,0.01);
+      --card:        rgba(255,255,255,0.04);
+      --card-hover:  rgba(255,255,255,0.07);
+      --gold:        #d4af37;
+      --gold-light:  #f2d67b;
+      --text:        #f5f1e8;
+      --muted:       #c8c0b2;
+      --line:        rgba(212,175,55,0.25);
+      --line-soft:   rgba(255,255,255,0.06);
+      --white:       #ffffff;
+      --shadow:      0 20px 60px rgba(0,0,0,0.35);
+      --header-bg:   rgba(10,10,11,0.80);
+      --input-bg:    rgba(255,255,255,0.04);
+      --input-brd:   rgba(255,255,255,0.08);
+      --hero-grad1:  rgba(212,175,55,0.12);
+      --hero-grad2:  rgba(255,255,255,0.06);
+      --btn-text:    #151515;
+    }
+
+    /* ── ТЕМA: LIGHT ── */
+    [data-theme="light"] {
+      --bg:          #faf7f0;
+      --bg-soft:     #f2ece0;
+      --bg-section:  rgba(0,0,0,0.01);
+      --card:        rgba(255,255,255,0.75);
+      --card-hover:  rgba(255,255,255,0.95);
+      --gold:        #b8920a;
+      --gold-light:  #c9a215;
+      --text:        #1a1612;
+      --muted:       #6b6358;
+      --line:        rgba(180,140,20,0.30);
+      --line-soft:   rgba(0,0,0,0.08);
+      --white:       #ffffff;
+      --shadow:      0 20px 60px rgba(0,0,0,0.10);
+      --header-bg:   rgba(250,247,240,0.88);
+      --input-bg:    rgba(255,255,255,0.80);
+      --input-brd:   rgba(0,0,0,0.12);
+      --hero-grad1:  rgba(180,140,20,0.10);
+      --hero-grad2:  rgba(0,0,0,0.03);
+      --btn-text:    #ffffff;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--line-soft);
+      transition: background 0.35s ease;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .logo img {
+      height: 52px;
+      width: 52px;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover { transform: scale(1.06); }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+    .menu a:hover, .menu a.active { color: var(--gold-light); }
+
+    /* Nav-right controls */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Social icons in nav */
+    .nav-socials {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .nav-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line-soft);
+      color: var(--muted);
+      transition: 0.25s ease;
+    }
+    .nav-socials a:hover {
+      border-color: var(--line);
+      color: var(--gold-light);
+      background: rgba(212,175,55,0.08);
+    }
+    .nav-socials svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line-soft);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: 0.25s ease;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover {
+      border-color: var(--line);
+      color: var(--gold-light);
+      background: rgba(212,175,55,0.08);
+    }
+    .theme-toggle svg { width: 18px; height: 18px; fill: currentColor; }
+    .icon-moon { display: block; }
+    .icon-sun  { display: none; }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="light"] .icon-sun  { display: block; }
+
+    /* Burger */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--line-soft);
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 14px 20px;
+      color: var(--muted);
+      font-size: 15px;
+      border-bottom: 1px solid var(--line-soft);
+      transition: 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold-light); padding-left: 28px; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #151515;
+      box-shadow: 0 10px 26px rgba(212,175,55,0.20);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(212,175,55,0.28);
+    }
+    .btn-outline {
+      border-color: var(--line);
+      color: var(--gold-light);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: rgba(212,175,55,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      padding: 96px 0 72px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, var(--hero-grad1), transparent 35%),
+        radial-gradient(circle at left center, var(--hero-grad2), transparent 25%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-family: "Inter", sans-serif;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(212,175,55,0.06);
+    }
+    .hero h1 {
+      font-size: clamp(44px, 6vw, 80px);
+      line-height: 1.04;
+      margin-bottom: 22px;
+      font-weight: 700;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero p {
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 580px;
+    }
+    .stat {
+      padding: 18px 16px;
+      border: 1px solid var(--line-soft);
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .stat strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-card {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 34px;
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--line-soft);
+      box-shadow: var(--shadow);
+    }
+    [data-theme="light"] .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
+    }
+    .hero-image {
+      height: 460px;
+      border-radius: 26px;
+      background:
+        linear-gradient(160deg, rgba(212,175,55,0.18), rgba(0,0,0,0.10)),
+        url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1200&q=80') center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(10,10,11,0.82);
+      border: 1px solid var(--line);
+      padding: 12px 16px;
+      border-radius: 16px;
+      max-width: 230px;
+      backdrop-filter: blur(8px);
+    }
+    [data-theme="light"] .hero-badge {
+      background: rgba(250,247,240,0.88);
+    }
+    .hero-badge small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .hero-badge strong {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--gold-light);
+      font-size: 20px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 92px 0; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-title > span {
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-family: "Inter", sans-serif;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .section-title h2 {
+      font-size: clamp(34px, 4vw, 56px);
+      margin-bottom: 14px;
+    }
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* ── COLLECTIONS ── */
+    .collections { background: var(--bg-section); }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--line);
+      background: var(--card-hover);
+    }
+    .card-image {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .card:hover .card-image { transform: scale(1.04); }
+    .card-content { padding: 24px; }
+    .card-content h3 { font-size: 28px; margin-bottom: 10px; }
+    .card-content p { color: var(--muted); margin-bottom: 16px; font-size: 15px; line-height: 1.6; }
+    .card-link {
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-link::after { content: "→"; transition: transform 0.2s; }
+    .card:hover .card-link::after { transform: translateX(4px); }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .about-visual {
+      min-height: 540px;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0.05), rgba(10,10,10,0.40)),
+        url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80') center/cover;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line-soft);
+    }
+    .about-content { padding: 14px 0; }
+    .about-content h2 { font-size: clamp(34px, 4vw, 56px); margin-bottom: 18px; }
+    .about-content p { color: var(--muted); margin-bottom: 16px; font-size: 17px; line-height: 1.7; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: 20px;
+      padding: 20px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .feature:hover {
+      border-color: var(--line);
+      background: var(--card-hover);
+    }
+    .feature strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+    .feature p { margin: 0; font-size: 14px; color: var(--muted); }
+
+    /* ── LUXURY BANNER ── */
+    .luxury-banner {
+      padding: 48px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.14), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 28px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    [data-theme="light"] .luxury-banner {
+      background: linear-gradient(135deg, rgba(180,140,20,0.10), rgba(255,255,255,0.60));
+    }
+    .luxury-banner h3 {
+      font-size: clamp(30px, 3vw, 48px);
+      margin-bottom: 14px;
+      line-height: 1.12;
+    }
+    .luxury-banner p { color: var(--muted); font-size: 16px; line-height: 1.7; }
+
+    /* ── CONTACTS ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+    .contact-card,
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .contact-card h3, .form-card h3 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .contact-card > p, .form-card > p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 0;
+      margin-top: 20px;
+    }
+    .contact-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .contact-list li:last-child { border-bottom: none; }
+    .contact-list strong {
+      display: block;
+      color: var(--gold-light);
+      margin-bottom: 3px;
+      font-size: 13px;
+      font-family: "Inter", sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Social links in contacts */
+    .social-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line-soft);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+    .social-btn svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+    .social-btn.instagram:hover {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-color: transparent;
+      color: #fff;
+    }
+    .social-btn.facebook:hover {
+      background: #1877f2;
+      border-color: transparent;
+      color: #fff;
+    }
+
+    form { display: grid; gap: 12px; margin-top: 20px; }
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-brd);
+      border-radius: 14px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: "Inter", sans-serif;
+      outline: none;
+      transition: 0.25s ease;
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.7; }
+    input:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.08);
+    }
+    textarea { min-height: 130px; resize: vertical; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 0 44px;
+      border-top: 1px solid var(--line-soft);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .footer-logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+      border-radius: 8px;
+      opacity: 0.9;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      justify-content: center;
+    }
+    .footer-nav a { color: var(--muted); font-size: 14px; transition: 0.2s; }
+    .footer-nav a:hover { color: var(--gold-light); }
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--line-soft);
+      color: var(--muted);
+      transition: 0.25s ease;
+    }
+    .footer-socials a:hover { border-color: var(--line); color: var(--gold-light); background: rgba(212,175,55,0.08); }
+    .footer-socials svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-tagline { color: var(--gold-light); letter-spacing: 2px; font-size: 12px; text-transform: uppercase; font-family: "Inter", sans-serif; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 900;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      color: #fff;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(37,211,102,0.45);
+    }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ── RESPONSIVE ── */
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      overflow: hidden;
+      border-bottom: 1px solid var(--line-soft);
+      border-top: 1px solid var(--line-soft);
+      background: rgba(212,175,55,0.04);
+      padding: 11px 0;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 32px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-family: "Inter", sans-serif;
+    }
+    .marquee-item span { color: var(--gold-light); font-size: 16px; }
+
+    /* ── GALLERY ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 14px;
+    }
+    .gallery-item {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+      min-height: 200px;
+    }
+    .gallery-item:first-child img { min-height: 420px; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%);
+      opacity: 0;
+      transition: 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span {
+      color: var(--gold-light);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews { background: var(--bg-section); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--line-soft);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line);
+    }
+    .review-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      color: var(--gold-light);
+      font-size: 18px;
+    }
+    .review-text {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #151515;
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 15px; font-weight: 600; }
+    .review-source { font-size: 12px; color: var(--muted); }
+
+    /* ── MAP ── */
+    .map-wrap {
+      margin-top: 30px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      box-shadow: var(--shadow);
+      height: 320px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      filter: grayscale(0.2);
+    }
+    [data-theme="dark"] .map-wrap iframe { filter: grayscale(0.3) invert(0.92) hue-rotate(180deg); }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .about-grid, .luxury-banner, .contact-grid { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .hero-visual { min-height: auto; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-nav { display: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .menu { display: none; }
+      .burger { display: flex; }
+      .nav-socials { display: none; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: span 2; }
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .grid-3, .features, .hero-stats { grid-template-columns: 1fr; }
+
+      .hero { padding-top: 64px; }
+      .hero-image, .about-visual { min-height: 340px; height: 340px; }
+
+      .luxury-banner, .contact-card, .form-card, .hero-card { padding: 22px; }
+
+      .footer-top { grid-template-columns: 1fr; text-align: center; }
+      .footer-socials { justify-content: center; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .social-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo">
+        <img src="фото/logo.jpg" alt="MAYA GOLD" />
+      </a>
+
+      <ul class="menu">
+        <li><a href="#collections">Kolekcje</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#opinie">Opinie</a></li>
+        <li><a href="#about">O marce</a></li>
+        <li><a href="#contacts">Kontakt</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <!-- Social icons desktop -->
+        <div class="nav-socials">
+          <a href="https://instagram.com/maya.gold" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://facebook.com/mayagold" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Zmień motyw">
+          <!-- Moon (dark mode icon) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+          <!-- Sun (light mode icon) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        </button>
+
+        <a href="#contacts" class="btn btn-outline" style="display:none;" id="navCta">Kontakt</a>
+
+        <!-- Burger -->
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="#collections" class="mobile-link">Kolekcje</a>
+      <a href="#galeria" class="mobile-link">Galeria</a>
+      <a href="#opinie" class="mobile-link">Opinie</a>
+      <a href="#about" class="mobile-link">O marce</a>
+      <a href="#contacts" class="mobile-link">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item"><span>✦</span> Złoto próba 585</span>
+      <span class="marquee-item"><span>✦</span> Złoto próba 750</span>
+      <span class="marquee-item"><span>✦</span> Certyfikat jakości</span>
+      <span class="marquee-item"><span>✦</span> Katowice — ul. Kościuszki 11</span>
+      <span class="marquee-item"><span>✦</span> Bezpłatna konsultacja</span>
+      <span class="marquee-item"><span>✦</span> Eleganckie pakowanie</span>
+      <span class="marquee-item"><span>✦</span> Biżuteria na zamówienie</span>
+      <span class="marquee-item"><span>✦</span> Złoto próba 585</span>
+      <span class="marquee-item"><span>✦</span> Złoto próba 750</span>
+      <span class="marquee-item"><span>✦</span> Certyfikat jakości</span>
+      <span class="marquee-item"><span>✦</span> Katowice — ul. Kościuszki 11</span>
+      <span class="marquee-item"><span>✦</span> Bezpłatna konsultacja</span>
+      <span class="marquee-item"><span>✦</span> Eleganckie pakowanie</span>
+      <span class="marquee-item"><span>✦</span> Biżuteria na zamówienie</span>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow reveal">Firma jubilerska • Kolekcja premium</span>
+          <h1 class="reveal reveal-delay-1">Biżuteria, w której <em>lśni</em> historia stylu</h1>
+          <p class="reveal reveal-delay-2">
+            MAYA GOLD to marka jubilerska dla osób, które wybierają nie tylko ozdoby,
+            ale także emocje, prestiż i dopracowaną estetykę. Subtelny luksus,
+            nowoczesne formy i dbałość o każdy detal.
+          </p>
+          <div class="hero-actions reveal reveal-delay-2">
+            <a href="#collections" class="btn btn-primary">Zobacz kolekcje</a>
+            <a href="#about" class="btn btn-outline">O marce</a>
+          </div>
+
+          <div class="hero-stats reveal reveal-delay-3">
+            <div class="stat">
+              <strong>500+</strong>
+              <span>modeli w katalogu</span>
+            </div>
+            <div class="stat">
+              <strong>10 lat</strong>
+              <span>na rynku jubilerskim</span>
+            </div>
+            <div class="stat">
+              <strong>Złoto</strong>
+              <span>próba 585 i 750</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay-1">
+          <div class="hero-card">
+            <div class="hero-image">
+              <div class="hero-badge">
+                <small>Nowa kolekcja</small>
+                <strong>Golden Essence</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section class="collections" id="collections">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Kolekcje</span>
+          <h2>Linie biżuteryjne MAYA GOLD</h2>
+          <p>
+            Wybierz biżuterię na wyjątkową okazję, codzienną elegancję lub luksusowy prezent.
+            Każdy model to historia zamknięta w szlachetnym metalu.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal reveal-delay-1">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="card-content">
+              <h3>Pierścionki</h3>
+              <p>Wyraziste formy, delikatne proporcje i elegancki blask na wyjątkowe chwile.</p>
+              <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+            </div>
+          </article>
+
+          <article class="card reveal reveal-delay-2">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="card-content">
+              <h3>Kolczyki</h3>
+              <p>Minimalistyczne i wyraziste modele, które podkreślają rysy twarzy i charakter stylizacji.</p>
+              <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+            </div>
+          </article>
+
+          <article class="card reveal reveal-delay-3">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="card-content">
+              <h3>Zawieszki i łańcuszki</h3>
+              <p>Nowoczesna klasyka do warstwowych zestawień i stylowych akcentów.</p>
+              <a href="#contacts" class="card-link">Dowiedz się więcej</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="galeria">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Galeria</span>
+          <h2>Biżuteria, która zachwyca</h2>
+          <p>Każdy detal tworzony z pasji — zajrzyj do naszej kolekcji i znajdź coś dla siebie.</p>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80" alt="Biżuteria MAYA GOLD" loading="lazy" />
+            <div class="gallery-overlay"><span>Kolekcja premium</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80" alt="Pierścionki" loading="lazy" />
+            <div class="gallery-overlay"><span>Pierścionki</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=800&q=80" alt="Kolczyki" loading="lazy" />
+            <div class="gallery-overlay"><span>Kolczyki</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" alt="Łańcuszki" loading="lazy" />
+            <div class="gallery-overlay"><span>Łańcuszki</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1573408301185-9519f94816b5?auto=format&fit=crop&w=800&q=80" alt="Bransoletki" loading="lazy" />
+            <div class="gallery-overlay"><span>Bransoletki</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-visual reveal"></div>
+        <div class="about-content">
+          <span class="eyebrow reveal">O marce</span>
+          <h2 class="reveal">MAYA GOLD — sztuka subtelnego wyróżnienia</h2>
+          <p class="reveal">
+            Tworzymy biżuterię, która łączy nowoczesną estetykę z ponadczasową wartością.
+            Dla nas biżuteria jest częścią osobowości, symbolem ważnych chwil i wyrazem indywidualności.
+          </p>
+          <p class="reveal">
+            Fundamentem marki jest zamiłowanie do szlachetnych linii, wysokiej jakości materiałów
+            i detali, które zachwycają od pierwszego spojrzenia. Każdy wyrób opuszcza nasz atelier
+            z certyfikatem jakości i starannie przygotowanym opakowaniem.
+          </p>
+
+          <div class="features reveal" id="advantages">
+            <div class="feature">
+              <strong>Design premium</strong>
+              <p>Kolekcje tworzone z naciskiem na styl, aktualność i wizualną lekkość.</p>
+            </div>
+            <div class="feature">
+              <strong>Eleganckie pakowanie</strong>
+              <p>Każde zamówienie w ekskluzywnym pudełku — idealne na prezent.</p>
+            </div>
+            <div class="feature">
+              <strong>Jakość wykonania</strong>
+              <p>Starannie dopracowane detale, komfort noszenia i nienaganny wygląd.</p>
+            </div>
+            <div class="feature">
+              <strong>Indywidualne podejście</strong>
+              <p>Pomoc w wyborze modelu, inspiracje prezentowe i wsparcie na każdym etapie.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LUXURY BANNER -->
+    <section>
+      <div class="container">
+        <div class="luxury-banner reveal">
+          <div>
+            <span class="eyebrow">MAYA GOLD</span>
+            <h3>Biżuteria dla kobiet, które wybierają wyrafinowaną elegancję</h3>
+            <p>
+              Zapraszamy do naszego showroomu lub składania zapytań online.
+              Pomożemy dobrać idealny model na każdą okazję — zaręczyny, ślub, urodziny lub codzienność.
+            </p>
+          </div>
+          <div>
+            <a href="#contacts" class="btn btn-primary" style="width: 100%; justify-content: center;">Wyślij zapytanie</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="opinie">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Opinie klientów</span>
+          <h2>Co mówią o nas klienci</h2>
+          <p>Zaufało nam już tysiące zadowolonych klientów z całej Polski.</p>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card reveal reveal-delay-1">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Pierścionek zaręczynowy przeszedł nasze oczekiwania. Jakość wykonania i opakowanie — wszystko na najwyższym poziomie. Polecam z całego serca!"</p>
+            <div class="review-author">
+              <div class="review-avatar">A</div>
+              <div>
+                <div class="review-name">Anna K.</div>
+                <div class="review-source">Google · 5 ★</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card reveal reveal-delay-2">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Kupiłam kolczyki dla mamy na urodziny — była zachwycona. Piękne pudełeczko, szybka obsługa i szczera pomoc w wyborze. Wrócę na pewno!"</p>
+            <div class="review-author">
+              <div class="review-avatar">M</div>
+              <div>
+                <div class="review-name">Magdalena W.</div>
+                <div class="review-source">Facebook · 5 ★</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card reveal reveal-delay-3">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Złoty łańcuszek ze złota 585 — doskonała jakość w bardzo dobrej cenie. Obsługa pomocna i cierpliwa. To moje ulubione miejsce na biżuterię w Katowicach!"</p>
+            <div class="review-author">
+              <div class="review-avatar">P</div>
+              <div>
+                <div class="review-name">Piotr R.</div>
+                <div class="review-source">Google · 5 ★</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Kontakt</span>
+          <h2>Skontaktuj się z MAYA GOLD</h2>
+          <p>
+            Jesteśmy do Twojej dyspozycji — napisz, zadzwoń lub odwiedź nas w showroomie.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal reveal-delay-1">
+            <h3>Dane kontaktowe</h3>
+            <p>Zapraszamy do kontaktu przez telefon, e-mail lub social media.</p>
+            <ul class="contact-list">
+              <li>
+                <strong>Telefon</strong>
+                <a href="tel:+48601846000" style="color:inherit;">+48 601 846 000</a>
+              </li>
+              <li>
+                <strong>Adres</strong>
+                Tadeusza Kościuszki 11, 40-049 Katowice
+              </li>
+              <li>
+                <strong>Godziny otwarcia</strong>
+                Pon–Pt: 10:00–19:00 · Sob: 10:00–15:00
+              </li>
+            </ul>
+
+            <!-- Social buttons -->
+            <div class="social-row">
+              <a href="https://instagram.com/maya.gold" target="_blank" rel="noopener" class="social-btn instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                @maya.gold
+              </a>
+              <a href="https://facebook.com/mayagold" target="_blank" rel="noopener" class="social-btn facebook">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Maya Gold
+              </a>
+            </div>
+          </div>
+
+          <div class="form-card reveal reveal-delay-2">
+            <h3>Wyślij zapytanie</h3>
+            <p>Odpowiemy najszybciej jak to możliwe — zazwyczaj w ciągu kilku godzin.</p>
+            <form>
+              <input type="text" placeholder="Twoje imię i nazwisko" />
+              <input type="tel" placeholder="Numer telefonu" />
+              <input type="email" placeholder="Adres e-mail" />
+              <textarea placeholder="Napisz, jaka biżuteria Cię interesuje — okazja, metal, rozmiar..."></textarea>
+              <button type="submit" class="btn btn-primary">Wyślij zapytanie</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- MAP -->
+        <div class="map-wrap reveal">
+          <iframe
+            src="https://maps.google.com/maps?q=Tadeusza+Ko%C5%9Bciuszki+11%2C+40-049+Katowice&output=embed&hl=pl&z=16"
+            allowfullscreen
+            loading="lazy"
+            title="MAYA GOLD — Katowice, ul. Kościuszki 11">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="фото/logo.jpg" alt="MAYA GOLD" />
+        </div>
+        <nav>
+          <ul class="footer-nav">
+            <li><a href="#collections">Kolekcje</a></li>
+            <li><a href="#about">O marce</a></li>
+            <li><a href="#advantages">Atuty</a></li>
+            <li><a href="#contacts">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="footer-socials">
+          <a href="https://instagram.com/maya.gold" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://facebook.com/mayagold" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 MAYA GOLD. Wszelkie prawa zastrzeżone.</div>
+        <div class="footer-tagline">Elegancja · Styl · Wartość</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/48601846000" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // ── THEME TOGGLE ──
+    const html = document.documentElement;
+    const btn  = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('mg-theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+
+    btn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('mg-theme', next);
+    });
+
+    // ── BURGER MENU ──
+    const burger     = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when link clicked
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ── SCROLL ANIMATIONS ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── FORM → WHATSAPP ──
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name  = this.querySelector('input[type="text"]').value.trim();
+      const phone = this.querySelector('input[type="tel"]').value.trim();
+      const email = this.querySelector('input[type="email"]').value.trim();
+      const msg   = this.querySelector('textarea').value.trim();
+
+      const text = [
+        '📿 *Zapytanie ze strony MAYA GOLD*',
+        name  ? `👤 Imię: ${name}`   : '',
+        phone ? `📞 Tel: ${phone}`   : '',
+        email ? `✉️ Email: ${email}` : '',
+        msg   ? `💬 Wiadomość: ${msg}` : '',
+      ].filter(Boolean).join('\n');
+
+      window.open(`https://wa.me/48601846000?text=${encodeURIComponent(text)}`, '_blank');
+    });
+
+    // ── ACTIVE NAV LINK ──
+    const sections = document.querySelectorAll('section[id]');
+    const menuLinks = document.querySelectorAll('.menu a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+      });
+      menuLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
