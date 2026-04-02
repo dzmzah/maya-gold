@@ -113,17 +113,18 @@
       background: rgba(250,247,240,0.97);
       backdrop-filter: blur(20px);
       border: 1px solid var(--line-soft);
-      border-radius: 22px;
-      padding: 18px;
+      border-radius: 18px;
+      padding: 10px;
       display: flex;
-      gap: 12px;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 210px;
       opacity: 0;
       pointer-events: none;
-      /* задержка 0.35s при скрытии — курсор успевает доехать */
       transition: opacity 0.2s ease 0.35s, transform 0.2s ease 0.35s;
       z-index: 2000;
       box-shadow: 0 24px 60px rgba(0,0,0,0.12);
-      white-space: normal;
+      white-space: nowrap;
     }
     /* невидимый мост между пунктом меню и дропдауном */
     .menu li::after {
@@ -156,35 +157,33 @@
     }
     .drop-item {
       display: flex;
-      flex-direction: column;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--line-soft);
-      transition: 0.25s ease;
-      cursor: pointer;
-      width: 150px;
-      flex-shrink: 0;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 10px;
       text-decoration: none;
-      color: inherit;
+      color: var(--text);
+      font-family: "Raleway", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.18s ease;
+      cursor: pointer;
+    }
+    .drop-item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--line);
+      flex-shrink: 0;
+      transition: 0.18s;
     }
     .drop-item:hover {
-      border-color: var(--line);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      background: rgba(180,140,20,0.07);
+      color: var(--gold);
     }
-    .drop-item img {
-      width: 150px;
-      height: 130px;
-      object-fit: cover;
-      display: block;
-    }
-    .drop-item span {
-      padding: 9px 12px;
-      font-size: 12px;
-      color: var(--muted);
-      font-family: "Raleway", sans-serif;
-      letter-spacing: 0.5px;
-      background: #fff;
+    .drop-item:hover::before {
+      background: var(--gold);
     }
 
     /* Nav-right controls */
@@ -1047,50 +1046,26 @@
 
       <ul class="menu">
         <li>
-          <a href="#collections">Pierścionki</a>
+          <a href="#pierścionki">Pierścionki</a>
           <div class="dropdown">
-            <a href="#contacts" class="drop-item">
-              <img src="images/19.jpg" alt="Pierścionek motyl" loading="lazy" />
-              <span>Motyl z brylantami</span>
-            </a>
-            <a href="#contacts" class="drop-item">
-              <img src="images/12.jpg" alt="Pierścionek szafir" loading="lazy" />
-              <span>Szafir i diamenty</span>
-            </a>
-            <a href="#contacts" class="drop-item">
-              <img src="images/17.jpg" alt="Pierścionek perły" loading="lazy" />
-              <span>Perły i diamenty</span>
-            </a>
+            <a class="drop-item" data-img="images/19.jpg" data-title="Motyl z brylantami" data-desc="Wyjątkowy pierścionek w kształcie motyla, złoto białe z brylantami." data-tag="Pierścionki">Motyl z brylantami</a>
+            <a class="drop-item" data-img="images/12.jpg" data-title="Szafir i diamenty" data-desc="Elegancki pierścionek ze szafirem i diamentami w złocie." data-tag="Pierścionki">Szafir i diamenty</a>
+            <a class="drop-item" data-img="images/17.jpg" data-title="Perły i diamenty" data-desc="Klasyczny pierścionek z perłami naturalnymi i diamentami." data-tag="Pierścionki">Perły i diamenty</a>
           </div>
         </li>
         <li>
-          <a href="#collections">Kolczyki</a>
+          <a href="#kolczyki">Kolczyki</a>
           <div class="dropdown">
-            <a href="#contacts" class="drop-item">
-              <img src="images/1.jpg" alt="Kolczyki ametyst" loading="lazy" />
-              <span>Ametyst złoto</span>
-            </a>
-            <a href="#contacts" class="drop-item">
-              <img src="images/10.jpg" alt="Kolczyki opal" loading="lazy" />
-              <span>Opal i granaty</span>
-            </a>
-            <a href="#contacts" class="drop-item">
-              <img src="images/15.jpg" alt="Kolczyki złote" loading="lazy" />
-              <span>Złote sztyfty</span>
-            </a>
+            <a class="drop-item" data-img="images/1.jpg" data-title="Ametyst złoto" data-desc="Kolczyki wiszące z ametystem w oprawie złota." data-tag="Kolczyki">Ametyst złoto</a>
+            <a class="drop-item" data-img="images/10.jpg" data-title="Opal i granaty" data-desc="Kolczyki sztyfty z opalem i granatami — gra kolorów i blask." data-tag="Kolczyki">Opal i granaty</a>
+            <a class="drop-item" data-img="images/15.jpg" data-title="Złote sztyfty" data-desc="Minimalistyczne złote kolczyki sztyfty na każdą okazję." data-tag="Kolczyki">Złote sztyfty</a>
           </div>
         </li>
         <li>
-          <a href="#collections">Zawieszki i łańcuszki</a>
+          <a href="#zawieszki">Zawieszki i łańcuszki</a>
           <div class="dropdown">
-            <a href="#contacts" class="drop-item">
-              <img src="images/6.jpg" alt="Naszyjnik perły" loading="lazy" />
-              <span>Perły Tahiti</span>
-            </a>
-            <a href="#contacts" class="drop-item">
-              <img src="images/7.jpg" alt="Zawieszka koral" loading="lazy" />
-              <span>Koral i złoto</span>
-            </a>
+            <a class="drop-item" data-img="images/6.jpg" data-title="Perły Tahiti" data-desc="Naszyjnik z perłami Tahiti i złotą różą — luksus w czystej postaci." data-tag="Zawieszki">Perły Tahiti</a>
+            <a class="drop-item" data-img="images/7.jpg" data-title="Koral i złoto" data-desc="Delikatna zawieszka z koralem naturalnym w złocie." data-tag="Zawieszki">Koral i złoto</a>
           </div>
         </li>
         <li><a href="#galeria">Galeria</a></li>
@@ -1553,13 +1528,16 @@
       });
     });
 
-    // Attach to dropdown items
+    // Attach to dropdown items (via data attributes)
     document.querySelectorAll('.drop-item').forEach(item => {
       item.addEventListener('click', e => {
         e.preventDefault();
-        const img   = item.querySelector('img');
-        const label = item.querySelector('span')?.textContent || '';
-        openModal(img.src, label, 'Wyjątkowy model z naszej kolekcji. Zapytaj o dostępność i cenę.', 'MAYA GOLD');
+        openModal(
+          item.dataset.img,
+          item.dataset.title,
+          item.dataset.desc,
+          item.dataset.tag
+        );
       });
     });
 
