@@ -99,7 +99,21 @@
       font-size: 14px;
       letter-spacing: 0.5px;
     }
-    .menu a:hover, .menu a.active { color: var(--gold-light); }
+    .menu a { position: relative; padding-bottom: 2px; }
+    .menu a:hover { color: var(--gold-light); }
+    .menu a.active {
+      color: var(--gold-light);
+    }
+    .menu a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold-light);
+      border-radius: 2px;
+    }
 
     /* ── DROPDOWN ── */
     .menu li { position: relative; }
@@ -1495,11 +1509,14 @@
         <span class="modal-tag" id="modalTag">MAYA GOLD</span>
         <h3 class="modal-title" id="modalTitle"></h3>
         <p class="modal-desc" id="modalDesc"></p>
-        <div class="modal-actions">
-          <a id="modalWa" href="#" target="_blank" rel="noopener" class="btn btn-primary" style="flex:1; justify-content:center;">
+        <div class="modal-actions" style="flex-wrap:wrap;">
+          <a id="modalWa" href="#" target="_blank" rel="noopener" class="btn btn-primary" style="flex:1;min-width:120px;justify-content:center;">
             WhatsApp
           </a>
-          <a href="#contacts" class="btn btn-outline" id="modalContact" style="flex:1; justify-content:center;">
+          <a href="tel:+48601846000" class="btn btn-outline" style="flex:1;min-width:120px;justify-content:center;">
+            Zadzwoń
+          </a>
+          <a href="#contacts" class="btn btn-outline" id="modalContact" onclick="closeModal()" style="flex:1 1 100%;justify-content:center;">
             Napisz do nas
           </a>
         </div>
@@ -1628,16 +1645,16 @@
 
     // ── ACTIVE NAV LINK ──
     const sections = document.querySelectorAll('section[id]');
-    // только прямые пункты меню БЕЗ дропдауна
-    const menuLinks = document.querySelectorAll('.menu > li:not(:has(.dropdown)) > a');
+    const menuLinks = document.querySelectorAll('.menu > li > a');
 
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+        if (window.scrollY >= sec.offsetTop - 160) current = sec.id;
       });
       menuLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        const href = a.getAttribute('href');
+        a.classList.toggle('active', href === '#' + current);
       });
     }, { passive: true });
   </script>
